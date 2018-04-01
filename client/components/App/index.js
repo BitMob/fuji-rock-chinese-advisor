@@ -1,5 +1,6 @@
-import React from "react"
-import "./styled"
+import React from 'react'
+
+import './styled'
 
 const App = ({ children }) => <div>{children}</div>
 

@@ -2,24 +2,14 @@ import { createStore, applyMiddleware, bindActionCreators } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 // import { apiEndpoint } from './server/config'
+import { reducers } from '../components'
 
 const initialState = {
-  clickCount: 0,
-  shouldMove: true,
-  step: 0,
-  entered: false
+  path: '/'
 }
 
 const ACTIONS = {
-  ADD_CLICK_COUNT: state => ({
-    ...state,
-    clickCount: (state.clickCount || 0) + 1
-  }),
-
-  TOGGLE_MOVE: (state, { shouldMove }) => ({ ...state, shouldMove }),
-
-  SET_STEP: (state, { step }) => ({ ...state, step }),
-  ENTER_MAIN: state => ({ ...state, entered: true })
+  ...reducers
 }
 
 export function bindActions(_act) {
@@ -32,9 +22,7 @@ export function bindActions(_act) {
 export default () =>
   createStore(
     (state, action) =>
-      action && ACTIONS[action.type]
-        ? ACTIONS[action.type](state, action)
-        : state,
+      action && ACTIONS[action.type] ? ACTIONS[action.type](state, action) : state,
     initialState,
     composeWithDevTools(applyMiddleware(thunk))
   )

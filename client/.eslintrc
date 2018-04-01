@@ -30,6 +30,7 @@
     "no-console": 0,
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
     "no-underscore-dangle": 0,
-    "max-len": ["error", { "code": 100 }]
+    "max-len": ["error", { "code": 100 }],
+    "quotes": ["error", "single"]
   }
 }

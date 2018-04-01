@@ -1,4 +1,10 @@
-import App from "./App"
-import Button from "./Button"
+import App from './App'
+import Button from './Button'
+import { Menu, reducer as menuReducer } from './Menu'
+// import {  } from './Menu/store'
 
-export { App, Button }
+const reducers = {
+  ...menuReducer
+}
+
+export { App, Button, Menu, reducers }
